@@ -9,3 +9,4 @@ C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-
 C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.csproj.CoreCompileInputs.cache
 C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.exe
 C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.pdb
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.csproj.AssemblyReference.cache
