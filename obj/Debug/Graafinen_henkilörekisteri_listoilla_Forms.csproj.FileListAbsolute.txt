@@ -1,0 +1,11 @@
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\bin\Debug\Graafinen_henkilörekisteri_listoilla_Forms.exe.config
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\bin\Debug\Graafinen_henkilörekisteri_listoilla_Forms.exe
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\bin\Debug\Graafinen_henkilörekisteri_listoilla_Forms.pdb
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.Form1.resources
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.Henkilötietojenmuokkauslomake.resources
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.Properties.Resources.resources
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.Uusihenkilölomake.resources
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.csproj.GenerateResource.cache
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.csproj.CoreCompileInputs.cache
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.exe
+C:\Users\Simo\source\repos\C-Person-registry-with-lists-and-files-NET-Framework-Windows-Forms-Finnish\obj\Debug\Graafinen_henkilörekisteri_listoilla_Forms.pdb
