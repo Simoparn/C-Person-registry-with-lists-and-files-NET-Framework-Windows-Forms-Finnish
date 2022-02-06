@@ -19,11 +19,17 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
 
         private void Luohenkilopainike_Click(object sender, EventArgs e)
         {
-            string[] syotetyttiedot = new string[11]{ uusitunnuskentta.Text, uusietunimikentta.Text, uusisukunimikentta.Text, uusisyntymapaivakentta.Text, uusisyntymakuukausikentta.Text, uusisyntymavuosikentta.Text, uusisukupuolikentta.Text, uusiosoitekentta.Text, uusipostinumerokentta.Text, uusipostitoimipaikkakentta.Text,""};
+            string[] syotetyttiedot = new string[11] { uusitunnuskentta.Text, uusietunimikentta.Text, uusisukunimikentta.Text, uusisyntymapaivakentta.Text, uusisyntymakuukausikentta.Text, uusisyntymavuosikentta.Text, uusisukupuolikentta.Text, uusiosoitekentta.Text, uusipostinumerokentta.Text, uusipostitoimipaikkakentta.Text, "" };
+            try
+            {
+                Program.UusiHenkilo(syotetyttiedot);
+                this.uusihenkiloilmoitustietopalkki.Text = "Uusi henkilö tallentui onnistuneesti rekisteriin.";
+            } catch (Exception exception) {
+                this.uusihenkiloilmoitustietopalkki.Text = "Annetut henkilötiedot ovat virheellisessä muodossa, uutta henkilöä ei voida tallentaa rekisteriin.";
+            }
+                
 
-            Program.UusiHenkilo(syotetyttiedot);
-            
-            
+
 
         }
     }

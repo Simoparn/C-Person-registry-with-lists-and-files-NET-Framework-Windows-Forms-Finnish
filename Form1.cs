@@ -18,45 +18,63 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
 
         {
             InitializeComponent();
-           
+            
             syottopalkki.Text = "Syötä näytettävän, muokattavan tai poistettavan henkilön henkilötunnus tähän.";
-           //  foreach (Henkilö hlo in Henkilorekisteri) ilmoitustietopalkki.Text += "";
+            henkilotietopalkki.Width = 965;
+            henkilotietopalkki.Height = 302;
+            //  foreach (Henkilö hlo in Henkilorekisteri) ilmoitustietopalkki.Text += "";
         }
+        
+        //Layoutin oletusasetukset pienennetyssä ja suurennetussa ikkunassa
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                henkilotietopalkki.Width = 865;
+                henkilotietopalkki.Height = 202;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                henkilotietopalkki.Width = 965;
+                henkilotietopalkki.Height = 302;
+            }
+        }
+
 
         private void Naytahenkilopainike_Click(object sender, EventArgs e)
         {
             henkilotietopalkki.Text = "";
-            henkilotietopalkki.Width = 920;
-            henkilotietopalkki.Height = 302;
             string henkilontieto = Program.NaytaHenkilonTiedot(syottopalkki.Text);
 
             if (!henkilontieto.Equals(""))
             {
 
                 ilmoitustietopalkki.Text = "\nHenkilön tiedot löytyivät\n";
-                henkilotietopalkki.Text = " HENKILÖTUNNUS  ETUNIMI  SUKUNIMI     SYNTYMÄAIKA   SUKUPUOLI  OSOITE   POSTINUMERO   POSTITOIMIPAIKKA     TIETUEEN LUONTIAIKA     TIETUEEN MUOKKAUSAIKA\n"+henkilontieto;
+                henkilotietopalkki.Text = " HENKILÖTUNNUS  ETUNIMI  SUKUNIMI   SYNTYMÄAIKA   SUKUPUOLI  OSOITE   POSTINUMERO   POSTITOIMIPAIKKA   TIETUEEN LUONTIAIKA     TIETUEEN MUOKKAUSAIKA\n\n\t\t";
+                henkilotietopalkki.Text += henkilontieto;
             }
             else ilmoitustietopalkki.Text = "\nHenkilön tietoja ei löytynyt.";
         }
 
         private void Kaikkitiedotpainike_Click(object sender, EventArgs e)
         {
+            //Oletusasetukset
             henkilotietopalkki.Text = "";
             syottopalkki.Text = "Syötä näytettävän tai poistettavan henkilön henkilötunnus tähän.";
-            henkilotietopalkki.Width = 920;
+            henkilotietopalkki.Width = 965;
             henkilotietopalkki.Height = 302;
-            string[] rivit = new string [1000];
-          
 
-             rivit = Program.NaytaKaikkiTiedot();
+            string[] rivit = new string [1000];
+            rivit = Program.NaytaKaikkiTiedot();
+            
             ilmoitustietopalkki.Text = "Kaikkien henkilöiden tiedot";
             henkilotietopalkki.Lines = rivit;
             foreach (string rivi in rivit)
             {
                
-                    henkilotietopalkki.Height += 5;
-                   
-                    
+                henkilotietopalkki.Height += 5;
+                            
                 
             }
 
@@ -109,14 +127,17 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
 
         private void Muokkaahenkiloapainike_Click(object sender, EventArgs e)
         {
-
+            //Jos syöttöpalkki ei ole tyhjä ja tiedot löytyvät
             if (!(syottopalkki.Text == "") && !(Program.HaeHenkilonTiedot(syottopalkki.Text) == null))
             {
                 Henkilötietojenmuokkauslomake uusimuokkauslomake = new Henkilötietojenmuokkauslomake(Program.HaeHenkilonTiedot(syottopalkki.Text));
                 uusimuokkauslomake.Visible = true;
+                
             }
 
             else ilmoitustietopalkki.Text = "Henkilön tietoja ei löytynyt"; 
         }
+
+       
     }
 }

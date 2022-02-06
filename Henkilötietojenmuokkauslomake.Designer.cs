@@ -19,7 +19,9 @@
             }
             base.Dispose(disposing);
         }
+          
 
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -275,5 +277,7 @@
         private System.Windows.Forms.TextBox muokattavasukunimikentta;
         private System.Windows.Forms.TextBox muokattavaetunimikentta;
         private System.Windows.Forms.TextBox muokattavatunnuskentta;
+
+        
     }
 }

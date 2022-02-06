@@ -111,13 +111,13 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
                         AsetaPostitoimipaikka(null, false);
 
                         this.luontiaika = DateTime.Now;
+                        this.muokkausaika = DateTime.Now;
 
 
 
+                }
 
-                    }
-
-                    //Kirjoitetaan käyttäjän syöte tiedostoon luonnin yhteydessä
+                    //Uudet käyttäjätiedot tiedostoon luonnin yhteydessä
 
                     else
                     {
@@ -132,6 +132,7 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
                         AsetaPostitoimipaikka(rivintiedot[9], false);
 
                         this.luontiaika = DateTime.Now;
+                        this.muokkausaika = DateTime.Now;
                         string[] syotetytrivintiedot= {"","","","","","","",""};
 
                         syotetytrivintiedot[0] = KerroTunnus();
@@ -204,35 +205,39 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
 
             }
 
-            //TODO: Ei saa antaa nollia kuukausien ja päivien alussa, lisää kyselyt kellonajalle.
+        // Ei saa antaa nollia kuukausien ja päivien alussa
+        // TODO: lisää kyselyt kellonajalle.
 
-            public void AsetaSyntymaaika(string syntymaaika, string syntymapaiva, string syntymakuukausi, string syntymavuosi, bool tiedostosta)
+        public void AsetaSyntymaaika(string syntymaaika, string syntymapaiva, string syntymakuukausi, string syntymavuosi, bool tiedostosta)
             {
 
-                if (tiedostosta)
-                {
-                    this.syntymaaika = DateTime.Parse(syntymaaika);
+            if (tiedostosta)
+            {
+                this.syntymaaika = DateTime.Parse(syntymaaika);
 
 
-                }
+            }
 
-                else if (!tiedostosta)
-                {
+            else if (!tiedostosta)
+            {
 
+                
+                
 
 
                 if (!syntymapaiva.Contains("0") && !syntymakuukausi.Contains("0"))
                 {
                     this.syntymaaika = new DateTime(int.Parse(syntymavuosi), int.Parse(syntymakuukausi), int.Parse(syntymapaiva));
 
-
                 }
 
                 else
                     throw new FormatException("Virheellinen päivämäärä, henkilötietoja ei voida tallentaa.");
                 //TODO: varoitusilmoitus ikkunaan?
-                }
+                
 
+
+                }
 
 
 

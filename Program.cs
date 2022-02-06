@@ -35,37 +35,6 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1(Henkilorekisteri));
                 
-                
-
-
-
-
-
-              
-
-
-
-
-
-
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             }
@@ -100,9 +69,11 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
                 {
                     if (rivi.Contains(syotettyhenkilotunnus))
                     {
-                 
-                      
-                        return rivi.Replace(";", "\t");
+
+                        rivi += "\n";
+                        rivi = rivi.Replace(";", "\t");
+                        
+                        return rivi;
                     }
 
                 }
@@ -126,9 +97,9 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
             using (StreamReader lukija = File.OpenText(tiedostopolku))
             {
                 string rivi;
-                int[] sarakkeidenpituudet = new int[10];
-                int[] kenttienpituudet = new int[10];
-                bool[] sisennasarakkeet = new bool[10];
+                int[] sarakkeidenpituudet = new int[11];
+                int[] kenttienpituudet = new int[11];
+                bool[] sisennasarakkeet = new bool[11];
                 int indeksi = 0;
                 string sisennys = "";
 
@@ -143,13 +114,14 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
                
                 indeksi = 0;
 
+                //Rivit
                 while ((rivi = lukija.ReadLine()) != null)
                 {
 
 
                     string[] naytettavarivitaulukkona = rivi.Split(';');
 
-
+                    //Rivin kenttien pituudet talteen
                     foreach (string kentta in naytettavarivitaulukkona)
                     {
                         kenttienpituudet[indeksi] = kentta.Length;
@@ -160,10 +132,10 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
                     indeksi = 0;
 
                    
-
+                    //Jos kentän pituus on suurempi kuin sarakkeen nimen kokonaispituus, sisennetään rivin kenttiä
                     for (int i = 0; i < sarakkeidenpituudet.Length; i++)
                     {
-                        if (naytettavarivitaulukkona[i].Length > sarakkeidenpituudet[i])
+                        if (naytettavarivitaulukkona[i].Length < sarakkeidenpituudet[i])
                             sisennasarakkeet[i] = true;
                         else sisennasarakkeet[i] = false;
 
@@ -184,10 +156,10 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
 
                                 sisennys += " ";
                             }
-                            tiedot += sisennys + " | " + sarake + " | " + sisennys;
+                            tiedot += sisennys + "  " + sarake + "  " + sisennys;
 
                         }
-                        else tiedot += " | " + sarake + " | ";
+                        else tiedot += "  " + sarake + "  ";
 
 
                         sisennys = "";
@@ -204,12 +176,12 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
 
 
                         if (sisennasarakkeet[indeksi])
-                            tiedot += " | " + kentta + " | ";
+                            tiedot += " " + kentta + " ";
                         else
                         {
                             for (int i = 0; i < (sarakkeidenpituudet[i] - kentta.Length) / 2; i++)
                                 sisennys += " ";
-                            tiedot += sisennys + " | " + kentta + " | " + sisennys;
+                            tiedot += sisennys + "  " + kentta + "  " + sisennys;
                         }
                         sisennys = "";
                         indeksi++;
@@ -227,6 +199,7 @@ namespace Graafinen_henkilörekisteri_listoilla_Forms
                 foreach (Henkilo hlo in Henkilorekisteri) Console.WriteLine(hlo.KerroTunnus());    
                 */
                 tiedot += "\n\n\n";
+                //tiedot täytyy palauttaa merkkijonotaulukkona tekstilaatikon lines-attribuutia varten
                 tiedottaulukkona = tiedot.Split('\n');
                 return tiedottaulukkona;
 
